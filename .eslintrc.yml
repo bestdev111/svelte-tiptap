@@ -1,0 +1,29 @@
+root: true
+
+extends:
+  - pegasus
+
+overrides:
+  - files:
+      - '*.svelte'
+    extends:
+      - plugin:svelte/recommended
+    parser: svelte-eslint-parser
+    parserOptions:
+      parser: '@typescript-eslint/parser'
+  - files:
+      - '**/*.ts'
+    extends:
+      - plugin:@typescript-eslint/recommended
+  - files:
+      - 'e2e/**/*'
+    extends:
+      - plugin:cypress/recommended
+
+rules:
+  no-warning-comments: off
+  no-duplicate-imports: off
+
+env:
+  browser: true
+  node: true
